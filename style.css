@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e8f4fd 0%, #d0eaff 50%, #bde0fb 100%);
+  font-family: 'Segoe UI', 'Arial Rounded MT Bold', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 0;
+  overflow-x: hidden;
+}
+
+.display-area {
+  background: white;
+  border-radius: 30px;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(70, 140, 220, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.display-area::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  border: 4px solid #a8d4f5;
+}
+
+.big-number {
+  font-size: 120px;
+  font-weight: 900;
+  color: #1a6fbf;
+  line-height: 1;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  user-select: none;
+}
+
+.big-number.pop {
+  animation: pop 0.3s ease forwards;
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.buttons-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: auto;
+  padding: 10px 20px;
+}
+
+.buttons-grid::-webkit-scrollbar {
+  height: 4px;
+}
+.buttons-grid::-webkit-scrollbar-thumb {
+  background: #a8d4f5;
+  border-radius: 4px;
+}
+
+.num-btn {
+  min-width: 62px;
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  border: 3px solid #a8d4f5;
+  background: white;
+  font-size: 24px;
+  font-weight: 800;
+  color: #2277cc;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s, box-shadow 0.15s, border-color 0.15s;
+  box-shadow: 0 4px 12px rgba(70, 140, 220, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.num-btn:hover {
+  background: #dff0ff;
+  border-color: #4a9fe8;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(70, 140, 220, 0.25);
+}
+
+.num-btn:active,
+.num-btn.active {
+  background: #1a6fbf;
+  color: white;
+  border-color: #1a6fbf;
+  transform: scale(0.94);
+  box-shadow: 0 2px 8px rgba(70, 140, 220, 0.3);
+}
+
+.placeholder {
+  font-size: 36px;
+  color: #b0cfe8;
+  font-weight: 700;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a6fbf;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
